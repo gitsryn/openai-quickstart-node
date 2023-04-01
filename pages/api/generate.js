@@ -50,7 +50,7 @@ export default async function (req, res) {
 
 function generatePrompt(animal) {
   const capitalizedAnimal =
-    activities[0].toUpperCase() + animal.slice(1).toLowerCase();
+    animal[0].toUpperCase() + animal.slice(1).toLowerCase();
   return `Suggest three animals for me based on my interest.
 
 Interest: Hiking
