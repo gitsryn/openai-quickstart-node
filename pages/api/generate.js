@@ -15,11 +15,11 @@ export default async function (req, res) {
     return;
   }
 
-  const activities = req.body.activities || '';
+  const activities = req.body.animal || '';
   if (activities.trim().length === 0) {
     res.status(400).json({
       error: {
-        message: "Please enter a valid interest",
+        message: "Please enter a valid animal",
       }
     });
     return;
@@ -28,7 +28,7 @@ export default async function (req, res) {
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: generatePrompt(activities),
+      prompt: generatePrompt(animal),
       temperature: 0.6,
     });
     res.status(200).json({ result: completion.data.choices[0].text });
@@ -48,10 +48,10 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(activities) {
-  const capitalizedActivities =
-    activities[0].toUpperCase() + activities.slice(1).toLowerCase();
-  return `Suggest three activities for me based on my interest.
+function generatePrompt(animal) {
+  const capitalizedAnimal =
+    activities[0].toUpperCase() + animal.slice(1).toLowerCase();
+  return `Suggest three animals for me based on my interest.
 
 Interest: Hiking
 Names: Mt Si, Agent Fluffball, The Incredible Feline
