@@ -53,7 +53,7 @@ function generatePrompt(animal) {
     animal[0].toUpperCase() + animal.slice(1).toLowerCase();
   return `Suggest three animals for me based on my interest.
 
-Interest: Hiking
+Interest: Animal
 Names: Mt Si, Agent Fluffball, The Incredible Feline
 Animal: Dog
 Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
